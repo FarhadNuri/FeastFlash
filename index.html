@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="A simple, fully responsive template on Food commerce with bootstrap5 and mealdb api">
+    <meta name="keywords" content="food commerce, bootstrap5, landing page, responsive bootstrap template">
+    <meta name="author" content="Babul Akter">
+    <meta name="publisher" content="Babul Akter">
+    <meta name="copyright" content="Babul Akter">
+    <meta name="description" content="A simple, fully responsive template on Food commerce with bootstrap5 and mealdb api">
+    <meta name="page-topic" content="Media">
+    <meta name="page-type" content="landing page">
+    <meta name="audience" content="Everyone">
+    <meta name="robots" content="index, follow">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FeastFlash: Fastest food delivery in your city</title>
+
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+      * {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        min-height: 100vh;
+      }
+
+      .text-success {
+        color: #2ecc71 !important;
+      }
+
+      .btn-success {
+        background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%) !important;
+        border: none !important;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .btn-success:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+      }
+
+      .btn-outline-success {
+        border-color: #2ecc71 !important;
+        color: #2ecc71 !important;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-success:hover {
+        background: #2ecc71 !important;
+        color: white !important;
+        transform: translateY(-2px);
+      }
+
+      .navbar {
+        background: white !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        padding: 15px 0;
+      }
+
+      .navbar-brand {
+        font-size: 1.6rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .navbar-brand i {
+        background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+        color: white;
+        padding: 8px 10px;
+        border-radius: 10px;
+        font-size: 1.2rem;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        padding: 8px 16px !important;
+        margin: 0 4px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        background: rgba(46, 204, 113, 0.1);
+      }
+
+      .nav-cart {
+        background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+        color: white !important;
+        border-radius: 10px;
+        padding: 8px 15px !important;
+      }
+
+      .nav-cart:hover {
+        background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+        transform: translateY(-2px);
+      }
+
+      .card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      }
+
+      .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .form-control {
+        border-radius: 25px 0 0 25px;
+        padding: 12px 20px;
+        border: 2px solid #e0e0e0;
+      }
+
+      .form-control:focus {
+        border-color: #2ecc71;
+      }
+
+      #search-btn {
+        border-radius: 0 25px 25px 0;
+      }
+
+      .modal-content {
+        border-radius: 15px;
+        border: none;
+      }
+
+      .card-footer {
+        background: white;
+        border-top: 1px solid #f0f0f0;
+      }
+
+      .dark-mode-toggle {
+        background: none;
+        border: 2px solid #2ecc71;
+        color: #2ecc71;
+        border-radius: 10px;
+        padding: 6px 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+      }
+
+      .dark-mode-toggle:hover {
+        background: #2ecc71;
+        color: white;
+      }
+
+      body.dark-mode {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      }
+
+      body.dark-mode .navbar {
+        background: #1a1a2e !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+
+      body.dark-mode .card {
+        background: #16213e;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      }
+
+      body.dark-mode .card-title {
+        color: #2ecc71 !important;
+      }
+
+      body.dark-mode .card-footer {
+        background: #1a1a2e;
+        border-top: 1px solid #2a2a4a;
+      }
+
+      body.dark-mode .form-control {
+        background: #16213e;
+        border-color: #2a2a4a;
+        color: white;
+      }
+
+      body.dark-mode .form-control::placeholder {
+        color: #888;
+      }
+
+      body.dark-mode .modal-content {
+        background: #1a1a2e;
+        color: white;
+      }
+
+      body.dark-mode .modal-header {
+        border-bottom: 1px solid #2a2a4a;
+      }
+
+      body.dark-mode .modal-footer {
+        border-top: 1px solid #2a2a4a;
+      }
+
+      body.dark-mode .text-muted {
+        color: #aaa !important;
+      }
+
+      body.dark-mode .card-text {
+        color: #ccc !important;
+      }
+
+  </style>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="text-success navbar-brand" href="./index.html">
+          <i class="bi bi-shop"></i>
+          FeastFlash
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="ms-auto navbar-nav">
+            <li class="nav-item">
+              <a
+                class="text-success nav-link active"
+                aria-current="page"
+                href="#home"
+                onclick="loadAllCategories()"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="text-success nav-link" href="#items">Items</a>
+            </li>
+            <li class="nav-item">
+              <a class="text-success nav-link" href="#items">Pricing</a>
+            </li>
+            <li
+              style="cursor: pointer"
+              class="nav-item"
+              data-bs-toggle="modal"
+              data-bs-target="#cart-items"
+            >
+              <p class="nav-link nav-cart mb-0">
+                <i class="bi bi-cart4"></i> Cart
+              </p>
+            </li>
+            <li class="nav-item ms-2">
+              <button class="dark-mode-toggle" id="dark-mode-btn" onclick="toggleDarkMode()">
+                <i class="bi bi-moon-fill"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="home" class="container mt-4">
+      <div class="w-50 mx-auto">
+        <div class="input-group mb-3">
+          <input
+            id="search-field"
+            type="text"
+            class="form-control shadow-none"
+            placeholder="Find Best Foods"
+            aria-label="Find Best Foods"
+            aria-describedby="search-btn"
+          />
+          <button class="btn btn-success px-4 fw-semi-bold shadow-none" type="button" id="search-btn">
+            Search Food
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="spinner-container" style="display: none" class="container mt-5">
+      <div class="d-flex items-center justify-content-center">
+        <div class="spinner-grow text-success spinner-grow-xxl"></div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div id="message-container" class="text-success p-2 w-50 mx-auto">
+        <p class="fs-4 text-center">
+          Getting Food Categories...
+        </p>
+      </div>
+    </div>
+
+    <div id="items" class="container mt-5 pb-5">
+      <div
+        id="meal-container"
+        class="
+          row row-cols-1 row-cols-md-2 row-cols-lg-4
+          gx-lg-3 gx-md-5 gx-4
+          gy-5
+        "
+      >
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="cart-items"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="cart-details"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cart-details">Your Orders</h5>
+            <button
+              type="button"
+              class="btn-close shadow-none"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body"></div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary shadow-none"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="food-details"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="food-details"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-success" id="food-details-title">
+              Food Detail Is Loading...
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary shadow-none"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success shadow-none">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="cart-add-info"
+      style="display: none; z-index: 9999 !important"
+      class="mt-5 mx-auto fixed-top w-50"
+    >
+      <div class="text-center alert alert-success rounded-pill">
+        Your Order have Been Placed. We'll Deliver Soon 🍲
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./app.js"></script>
+
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const btn = document.getElementById('dark-mode-btn');
+        const isDark = document.body.classList.contains('dark-mode');
+        btn.innerHTML = isDark ? '<i class="bi bi-sun-fill"></i>' : '<i class="bi bi-moon-fill"></i>';
+        localStorage.setItem('darkMode', isDark);
+      }
+
+      // Load saved preference
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('dark-mode-btn').innerHTML = '<i class="bi bi-sun-fill"></i>';
+      }
+    </script>
+  </body>
+</html>
